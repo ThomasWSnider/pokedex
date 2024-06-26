@@ -16,3 +16,8 @@
   min-height: 100%;
   width: 80%;
 }
+
+#pokeList {
+  max-height: 60dvh;
+  overflow-y: auto;
+}
