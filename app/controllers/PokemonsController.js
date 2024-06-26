@@ -25,9 +25,13 @@ export class PokemonsController {
     let pokeHTML = ''
     pocketMonsters.forEach((pokemon) => pokeHTML += `
               <div class="col-12">
-                <button class="w-100 btn btn-outline-danger"><p class="fs-5 m-0 py-2 fw-bold"><i class="mdi mdi-pokeball"></i> ${pokemon.name}</p></button>
+                <button onclick="app.PokemonsController.getActivePoke()" class="w-100 btn btn-outline-danger"><p class="fs-5 m-0 py-2 fw-bold"><i class="mdi mdi-pokeball"></i> ${pokemon.name}</p></button>
               </div>
           `)
     setHTML('pokeList', pokeHTML)
+  }
+
+  getActivePoke() {
+
   }
 }

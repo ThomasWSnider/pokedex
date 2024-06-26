@@ -6,9 +6,9 @@ class PokemonsService {
     console.log('Service is up and running');
   }
   async getPocketMonsters() {
-    const response = await pokeApi.get('pokemon?limit=1302')
+    const response = await pokeApi.get('generation/1')
     console.log(response.data);
-    AppState.allPokemon = response.data.results
+    AppState.allPokemon = response.data.pokemon_species
   }
 
 
