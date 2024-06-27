@@ -31,7 +31,7 @@ export class Pokemon {
               </div>
               <div class="col-12">
                 <div class="text-end">
-                  <button class="btn btn-outline-light"><i class="mdi mdi-pokeball"></i> Catch</button>
+                  <button onclick="app.SandboxPokemonsController.catchPokemon()" class="btn btn-outline-light"><i class="mdi mdi-pokeball"></i> Catch</button>
                 </div>
               </div>
             </div>
