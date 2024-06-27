@@ -7,6 +7,7 @@ export class PokemonsController {
   constructor() {
     console.log(`We're gonna catch'em all! -PokemonsController`);
     AppState.on('allPokemon', this.drawPocketMonsters)
+    AppState.on('activePoke', this.drawActivePoke)
     this.getPocketMonsters()
   }
 
@@ -25,13 +26,23 @@ export class PokemonsController {
     let pokeHTML = ''
     pocketMonsters.forEach((pokemon) => pokeHTML += `
               <div class="col-12">
-                <button onclick="app.PokemonsController.getActivePoke()" class="w-100 btn btn-outline-danger"><p class="fs-5 m-0 py-2 fw-bold"><i class="mdi mdi-pokeball"></i> ${pokemon.name}</p></button>
+                <button onclick="app.PokemonsController.getActivePoke('${pokemon.name}')" class="w-100 btn btn-outline-danger"><p class="fs-5 m-0 py-2 fw-bold"><i class="mdi mdi-pokeball"></i> ${pokemon.name}</p></button>
               </div>
           `)
     setHTML('pokeList', pokeHTML)
   }
 
-  getActivePoke() {
+  getActivePoke(pokeName) {
+    try {
+      pokemonsService.getActivePoke(pokeName)
+    } catch (error) {
+      Pop.error(error)
+      console.log('You done messed up dawg');
+    }
+  }
 
+  drawActivePoke() {
+    const activePoke = AppState.activePoke
+    setHTML('selectedPoke', activePoke.activePokeHTMLTemplate)
   }
 }
